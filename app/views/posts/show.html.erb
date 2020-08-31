@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+
+<p>
+  <strong>Posted at:</strong>
+  <%= @post.posted_at %>
+</p>
+
+<p>
+  <% if @post.main_image.attached? %>
+   <%= image_tag @post.main_image %>
+  <% end %>  
+</p>
+
+<% @post.other_images.each do |other| %>
+  <p><%= image_tag other %></p>
+<% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
